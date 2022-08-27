@@ -17,3 +17,6 @@ spring:
       - localhost:8083
     consumer:
       auto-offset-reset: earliest
+      group-id: db_group
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

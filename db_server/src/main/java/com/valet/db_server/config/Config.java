@@ -3,14 +3,12 @@ package com.valet.db_server.config;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.support.converter.BytesJsonMessageConverter;
 
 @Configuration
 public class Config {
     @Bean
-    @Primary
     public BytesJsonMessageConverter bytesJsonMessageConverter(){
         return new BytesJsonMessageConverter();
     }

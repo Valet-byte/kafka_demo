@@ -6,7 +6,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: valetbyte22@gmail.com
-    password: "hadltgjyqbbbxfxi"
+    password: "****"
     test-connection: true
     properties:
       mail:
@@ -24,3 +24,4 @@ spring:
       - localhost:8083
     consumer:
       auto-offset-reset: earliest
+      group-id: email_group

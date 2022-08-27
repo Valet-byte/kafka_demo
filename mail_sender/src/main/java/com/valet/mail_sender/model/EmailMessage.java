@@ -15,4 +15,5 @@ public class EmailMessage {
     private String username;
     private String fromUserName;
     private EmailType emailType;
+    private String value;
 }
