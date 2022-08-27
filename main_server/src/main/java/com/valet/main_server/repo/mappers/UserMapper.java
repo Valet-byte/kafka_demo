@@ -1,6 +1,5 @@
 package com.valet.main_server.repo.mappers;
 
-import com.valet.main_server.model.Role;
 import com.valet.main_server.model.User;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -18,10 +17,6 @@ public class UserMapper implements RowMapper<User> {
                 .name(rs.getString("name"))
                 .password(rs.getString("password"))
                 .email(rs.getString("email"))
-                .role(Role.builder()
-                        .id(rs.getLong("roles.id"))
-                        .name(rs.getString("roles.name"))
-                        .build())
                 .build();
     }
 }

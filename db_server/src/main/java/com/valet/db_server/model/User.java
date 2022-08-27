@@ -13,7 +13,6 @@ import java.util.List;
 public class User {
     private long id;
     private String name;
-    private Role role;
     private String password;
     private String email;
 }

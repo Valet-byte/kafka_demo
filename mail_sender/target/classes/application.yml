@@ -1,0 +1,27 @@
+server:
+  port: 8900
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: valetbyte22@gmail.com
+    password: "****"
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    sender:
+      email: valetbyte22@gmail.com
+      text: Valet Byte
+
+  kafka:
+    bootstrap-servers:
+      - localhost:8084
+      - localhost:8083
+    consumer:
+      auto-offset-reset: earliest
+      group-id: email_group

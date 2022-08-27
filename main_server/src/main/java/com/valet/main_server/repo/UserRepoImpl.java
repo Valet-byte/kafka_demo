@@ -21,8 +21,8 @@ public class UserRepoImpl implements UserRepo {
         source.addValue("name", username);
 
 
-        return jdbc.queryForObject("SELECT * FROM users " +
-                "JOIN roles r on r.id = users.role_id WHERE users.name = :name", source, userMapper);
+        return jdbc.queryForObject("SELECT users.* FROM users"+
+                " WHERE users.name = :name", source, userMapper);
     }
 
     @Override
@@ -38,5 +38,12 @@ public class UserRepoImpl implements UserRepo {
             return false;
         }
 
+    }
+
+    @Override
+    public String getEmailByName(String userName) {
+        final MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("name", userName);
+        return jdbc.queryForObject("SELECT email from users where name = :name", source, String.class);
     }
 }

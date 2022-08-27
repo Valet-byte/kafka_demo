@@ -1,4 +1,4 @@
-package com.valet.db_server.model;
+package com.valet.main_server.model.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @NoArgsConstructor
-public class Role {
-    private long id;
-    private String name;
+public class EmailMessageDTO {
+    private String fromUser;
+    private String toUser;
+    private String value;
 }
