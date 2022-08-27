@@ -19,13 +19,14 @@ import java.util.List;
 public class User implements UserDetails {
     private long id;
     private String name;
+    private Role role;
     private String password;
     private String email;
 
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("USER"));
+        return List.of(new SimpleGrantedAuthority(role.getName()));
     }
     @Override
     @JsonIgnore

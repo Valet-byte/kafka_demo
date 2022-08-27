@@ -23,8 +23,8 @@ public class UserRepoImpl implements UserRepo {
 
         KeyHolder holder = new GeneratedKeyHolder();
 
-        jdbc.update("INSERT into users (name, password, email) VALUES " +
-                "(:name, :password, :email)", source, holder);
+        jdbc.update("INSERT into users (name, password, email, role_id) VALUES " +
+                "(:name, :password, :email, 1)", source, holder);
 
         user.setId((Long) holder.getKeys().get("id"));
         return user;

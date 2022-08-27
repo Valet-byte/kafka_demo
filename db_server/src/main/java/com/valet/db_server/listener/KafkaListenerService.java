@@ -22,9 +22,4 @@ public class KafkaListenerService {
         EmailMessage message = new EmailMessage(null, u.getEmail(), u.getName(), null, EmailType.HELLO_MESSAGE, null);
         emailService.sendEmail(message);
     }
-
-    @KafkaListener(topics = "sendInDBTopic")
-    public void sendOnDB(@Payload EmailMessage message){
-        emailService.saveToDB(message);
-    }
 }

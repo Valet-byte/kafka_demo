@@ -18,8 +18,7 @@ public class FromUserMessageSender implements Sender {
         simpleMailMessage.setFrom("valetbyte22@gmail.com");
         simpleMailMessage.setTo(emailMessage.getEmail());
         simpleMailMessage.setSubject(emailMessage.getFromUserName());
-        simpleMailMessage.setText("Message from  " + emailMessage.getUsername() + "\n" +
-                emailMessage.getValue());
+        simpleMailMessage.setText("Message from  " + emailMessage.getUsername());
         mailSender.send(simpleMailMessage);
     }
 

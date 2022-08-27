@@ -12,4 +12,13 @@ public class MainServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(MainServerApplication.class, args);
     }
+
+    @Bean
+    public NewTopic topic() {
+        return TopicBuilder.name("registrationTopic")
+                .partitions(10)
+                .replicas(1)
+                .build();
+    }
+
 }

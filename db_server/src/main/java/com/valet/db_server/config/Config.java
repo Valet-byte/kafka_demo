@@ -28,12 +28,4 @@ public class Config {
                 .replicas(1)
                 .build();
     }
-
-    @Bean
-    public NewTopic sendInDBTopic(){
-        return TopicBuilder.name("sendInDBTopic")
-                .partitions(10)
-                .replicas(1)
-                .build();
-    }
 }

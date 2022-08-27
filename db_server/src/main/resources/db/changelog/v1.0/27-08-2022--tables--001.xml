@@ -52,10 +52,7 @@
             <column name="email" type="text"/>
             <column name="value" type="text"/>
         </createTable>
+
     </changeSet>
 
-    <changeSet id="27-08-2022--drops--001" author="Valet-byte">
-        <dropTable tableName="roles"/>
-        <dropColumn tableName="users" columnName="role_id"/>
-    </changeSet>
 </databaseChangeLog>
