@@ -1,0 +1,53 @@
+version: "3"
+services:
+  zookeeper-1:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+    - 2181:2181
+
+  zookeeper-2:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 2182:2181
+
+  kafka:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '8083:8083'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:8083
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:8083
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-1:2181 , zookeeper-2:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper-1
+      - zookeeper-2
+  kafka2:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '8084:8083'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:8083
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:8083
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-1:2181 , zookeeper-2:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper-1
+      - zookeeper-2
+  db:
+    image: 'bitnami/postgresql'
+    container_name: db
+    environment:
+      - POSTGRESQL_POSTGRES_PASSWORD=toor
+      - POSTGRESQL_USERNAME=root
+      - POSTGRESQL_PASSWORD=toor
+    ports:
+      - 5432:5432
