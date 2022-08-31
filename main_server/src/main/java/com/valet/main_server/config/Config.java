@@ -1,8 +1,10 @@
 package com.valet.main_server.config;
 
 import lombok.SneakyThrows;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,4 +31,13 @@ public class Config {
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public NewTopic topic() {
+        return TopicBuilder.name("registrationTopic")
+                .partitions(10)
+                .replicas(3)
+                .build();
+    }
+
 }

@@ -17,7 +17,7 @@ public class Config {
     public NewTopic topic() {
         return TopicBuilder.name("registrationTopic")
                 .partitions(10)
-                .replicas(1)
+                .replicas(3)
                 .build();
     }
 
@@ -25,7 +25,7 @@ public class Config {
     public NewTopic emailTopic() {
         return TopicBuilder.name("sendEmailTopic")
                 .partitions(10)
-                .replicas(1)
+                .replicas(3)
                 .build();
     }
 }

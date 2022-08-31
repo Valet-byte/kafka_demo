@@ -11,7 +11,7 @@ public class Configuration {
     public NewTopic emailTopic() {
         return TopicBuilder.name("sendEmailTopic")
                 .partitions(10)
-                .replicas(1)
+                .replicas(3)
                 .build();
     }
 
